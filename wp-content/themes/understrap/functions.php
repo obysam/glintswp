@@ -62,20 +62,20 @@ function my_custom_shortcode() {
 
 
 		<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-		<p class="has-text-align-right"><em><a href="#">Book a call</a></em></p>
+		<p class="has-text-align-right"><em><button class="btn-normal" >Book a call</button></em></p>
 		</div>
 		</div>
         <div class="portfolio-list">
             <?php while ( $portfolio_query->have_posts() ) : $portfolio_query->the_post(); ?>
                 <div class="portfolio-item row">
-					<div class="col-md-1 col-sm-12 company-logo">
+					<div class="col-3 col-md-1 company-logo">
 						<?php $image_logo = get_field('company_logo');
 						if ($image_logo) {
 							$logo_url = wp_get_attachment_image($image_logo, 'large');
 							echo $logo_url;
 						}?>
 					</div>
-					<div class="col-md-11 company-bg">
+					<div class="col-9 col-md-10 company-bg">
 						<?php
 							$image_bg = get_field('company_background');
 							if ($image_bg) {
@@ -87,7 +87,7 @@ function my_custom_shortcode() {
 						<div class="col-md-3">
 							<h3><?php the_title(); ?></h3>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 content">
 							<?php the_content(); ?>
 						</div>
 						<div class="col-md-3">

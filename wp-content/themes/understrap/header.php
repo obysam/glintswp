@@ -57,20 +57,36 @@ $navbar_type       = get_theme_mod( 'understrap_navbar_type', 'collapse' );
 		</a>
 
 		<?php get_template_part( 'global-templates/navbar', $navbar_type . '-' . $bootstrap_version ); ?>
-
-		<div class="container">
-			<div class="row banner-content">
-				<div class="col-sm  d-flex align-items-end justify-content-start">
-					<h1 class="large"><?php esc_html_e( 'Where Design Meets Strategy
-', 'understrap' ); ?>
-<small>an award winning creative agency</small>
-</h1>
+		
+		<?php if (is_front_page()) {
+		?>
+			<div class="container">
+				<div class="row banner-content">
+					<div class="col-sm  d-flex align-items-end justify-content-start">
+						<h1 class="large">
+							<?php esc_html_e( 'Where Design Meets Strategy', 'understrap' ); ?>
+							<small>an award winning creative agency</small>
+						</h1>
+					</div>
+					<div class="col-sm d-flex align-items-center justify-content-end">
+						<h3 class="small"><?php esc_html_e( 'Unlocking your true potential through graphic design for business', 'understrap' ); ?></h3>
+					</div>
 				</div>
-				<div class="col-sm d-flex align-items-center justify-content-end">
-					<h3 class="small"><?php esc_html_e( 'Unlocking your true potential through graphic design for business', 'understrap' ); ?></h3>
+
+			</div>
+		<?php } else { ?>
+			<div class="container">
+				<div class="row banner-post">
+					<div class="col-sm-8 d-flex align-items-end justify-content-start">
+						<h1 class="large">
+						<?php
+							echo get_the_title();
+							?>
+						</h1>
+					</div>
 				</div>
 			</div>
-	</h3>
-		</div>
+		<?php } ?>
+
 	</div>
 	</header><!-- #wrapper-navbar -->
